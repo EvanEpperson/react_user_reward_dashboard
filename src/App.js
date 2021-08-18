@@ -8,7 +8,7 @@ function App() {
   const [userTransactions, setUserTransactions] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
-  const [newTransaction, setNewTransaction] = useState({ date: new Date(), amount: 0 });
+  // const [newTransaction, setNewTransaction] = useState({ date: new Date(), amount: 0 });
 
   useEffect(() => {
     console.log('Help');
@@ -56,27 +56,27 @@ function App() {
     setUserTransactions([...userData]);
   };
 
-  const updateInput = (e) => {
-    if (e.target.name === "date") {
-      setNewTransaction({ ...newTransaction, ...{ date: e.target.value } });
-    }
-    if (e.target.name === "amount") {
-      setNewTransaction({ ...newTransaction, ...{ amount: e.target.value } });
-    }
-  }
+  // const updateInput = (e) => {
+  //   if (e.target.name === "date") {
+  //     setNewTransaction({ ...newTransaction, ...{ date: e.target.value } });
+  //   }
+  //   if (e.target.name === "amount") {
+  //     setNewTransaction({ ...newTransaction, ...{ amount: e.target.value } });
+  //   }
+  // }
 
-  const btnAddtransaction = () => {
-    let data = { ...loadedData };
-    let month = new Date(newTransaction['date']);
-    if (month.getMonth() + 1 == 1 || month.getMonth() + 1 == 2 || month.getMonth() + 1 == 3) {
-      data[currentUser].push(newTransaction);
-      console.log(data)
-      setloadedData({ ...data });
+  // const btnAddtransaction = () => {
+  //   let data = { ...loadedData };
+  //   let month = new Date(newTransaction['date']);
+  //   if (month.getMonth() + 1 == 1 || month.getMonth() + 1 == 2 || month.getMonth() + 1 == 3) {
+  //     data[currentUser].push(newTransaction);
+  //     console.log(data)
+  //     setloadedData({ ...data });
 
-      userSelect(currentUser);
-    }
-    setNewTransaction({ date: new Date(), amount: 0 });
-  }
+  //     userSelect(currentUser);
+  //   }
+  //   setNewTransaction({ date: new Date(), amount: 0 });
+  // }
   return (
     //username 8character
     <div style={{
@@ -145,13 +145,13 @@ function App() {
               </tbody>
             </table>
             : <div>No Transactions Found</div>}
-          <div>
+          {/* <div>
             <h4>Add Transactions</h4>
             <h5>Only Transactions between 01/01/2020 and 03/31/2020 will be added</h5>
             <label>Date : </label><input type="date" name="date" value={newTransaction.date} onChange={(e) => updateInput(e)}></input>
             <label>Amount :</label><input type="number" name="amount" value={newTransaction.amount} onChange={(e) => updateInput(e)}></input>
             <button onClick={() => btnAddtransaction()}>Add Transaction</button>
-          </div>
+          </div> */}
         </Fragment>
       }
 
